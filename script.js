@@ -24,8 +24,6 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-getComputerChoice();
-
 // create a function named getHumanChoice
 function getHumanChoice() {
   // write the code so that getHumanChoice will return one of the valid choices depending on what the user inputs
@@ -35,4 +33,34 @@ function getHumanChoice() {
   return humanChoice;
 }
 
-console.log(getHumanChoice());
+// create two variables named humanScore and computeScore in the global scope to keep track of the players score
+// initialize those variables with the value of 0
+let humanScore = 0;
+let computerScore = 0;
+
+// create a function named playRound
+// define two parameters for playRound: humanChoice and computerChoice. use these two parameters to take the human and computer choices as arguments
+function playRound(humanChoice, computerChoice) {
+  // create a conditional statement to determine the winner between human vs computer
+  // if humanChoice equal with computerChoice then the result is a draw
+  // if humanChoice is rock and computerChoice is scissors, or humanChoice is paper and computerChoice is rock, or humanChoice is scissors and computerChoice is paper, then the result is human wins, human get one score
+  // otherwise, the computer wins, computer get one score
+  if (humanChoice == computerChoice) {
+    console.log("the game tie");
+  } else if (
+    (humanChoice == "rock" && computerChoice == "scissors") ||
+    (humanChoice == "scissors" && computerChoice == "paper") ||
+    (humanChoice == "paper" && computerChoice == "rock")
+  ) {
+    console.log(`You win Horeeee!!! ${humanChoice} beats ${computerChoice}`);
+    humanScore += 1;
+  } else {
+    console.log(`You lose Hooooooo!!! ${computerChoice} beats ${humanChoice}`);
+    computerScore += 1;
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
