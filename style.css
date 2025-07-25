@@ -111,3 +111,12 @@ button {
   border-color: hsl(0, 0%, 30%);
   color: hsl(0, 0%, 30%);
 }
+
+.show {
+  display: block;
+  margin-inline: auto;
+}
+
+.hidden {
+  display: none;
+}
