@@ -14,4 +14,8 @@ function getComputerChoice() {
   return choice;
 }
 
-console.log(getComputerChoice());
+// get human choice
+function getHumanChoice() {
+  result = prompt("Choose Your Weapon, Rock, Paper, or Scissors");
+  return result;
+}
