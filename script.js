@@ -6,14 +6,19 @@ const playerScoreContainer = document.querySelector(".player__container");
 const computerScoreContainer = document.querySelector(".computer__container");
 const result = document.querySelector(".result");
 const resultContainer = document.querySelector(".result__container");
+const reset = document.querySelector(".btn__restart");
 
-btns.forEach((btn) =>
-  btn.addEventListener("click", (e) => {
-    const humanSelection = getHumanChoice(e.target.name);
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-  })
-);
+reset.addEventListener("click", () => {
+  location.reload();
+});
+
+btns.forEach((btn) => btn.addEventListener("click", startGame));
+
+function startGame(e) {
+  const humanSelection = getHumanChoice(e.target.name);
+  const computerSelection = getComputerChoice();
+  playRound(humanSelection, computerSelection);
+}
 
 // get computer choice randomly
 function getComputerChoice() {
@@ -56,7 +61,7 @@ function playRound(humanChoice, computerChoice) {
     playerScores.textContent = humanScore.toString();
     playerScoreContainer.appendChild(playerScores);
     // display result
-    result.textContent = `You won! ${human} beats ${computer}`;
+    result.textContent = `You win! ${human} beats ${computer}`;
   } else {
     computerScore += 1;
     // display computer score
@@ -66,6 +71,23 @@ function playRound(humanChoice, computerChoice) {
     result.textContent = `You lose! ${computer} beats ${human}`;
   }
   resultContainer.appendChild(result);
+  playGame();
+}
+
+// function to stop after one of each player reach 5 points score
+function playGame() {
+  if (humanScore === 5 || computerScore === 5) {
+    if (humanScore === computerScore) {
+      result.textContent = `It's a tie!`;
+    } else {
+      const winner = `${humanScore > computerScore ? "Player" : "Computer"}`;
+      result.textContent = `${winner} win the game!`;
+      resultContainer.appendChild(result);
+    }
+    btns.forEach((btn) => btn.removeEventListener("click", startGame));
+    reset.classList.remove("hide");
+    reset.classList.add("show");
+  }
 }
 
 // calling the playRound until one of the player reach 5 score and declares a winner
