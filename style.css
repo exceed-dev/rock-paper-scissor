@@ -1,0 +1,113 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Figtree", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  background-color: #fff;
+  color: #000;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-family: "Figtree", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.container {
+  padding-block: 122px;
+  text-align: center;
+  height: 100vh;
+}
+
+.h1__title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 48px;
+}
+
+.h2__title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  margin-bottom: 64px;
+}
+
+.btn__container {
+  display: flex;
+  gap: 32px;
+}
+
+.btn {
+  width: 200px;
+  background-color: #000;
+  color: #fff;
+  padding-block: 16px;
+  margin-bottom: 64px;
+}
+
+.btn:hover {
+  background-color: hsl(0, 0%, 30%);
+}
+
+.score__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 43px;
+}
+
+.score {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.h3__title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.score__number {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.result__container > .h3__title {
+  margin-bottom: 24px;
+}
+
+.result {
+  margin-bottom: 48px;
+}
+
+.btn__restart {
+  border: 3px solid #000;
+  width: 200px;
+  padding-block: 16px;
+}
+
+.btn__restart:hover {
+  border-color: hsl(0, 0%, 30%);
+  color: hsl(0, 0%, 30%);
+}
